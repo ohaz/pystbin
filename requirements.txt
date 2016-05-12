@@ -1,0 +1,4 @@
+Flask == 0.10.1
+Pygments == 2.1
+tornado == 4.3
+WTForms == 2.1
