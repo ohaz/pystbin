@@ -2,7 +2,7 @@ import random
 import string
 
 from app import app, lexers, auth_key, basepath
-from flask import render_template, abort
+from flask import render_template, abort, redirect, url_for
 from pygments import highlight
 from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
@@ -42,6 +42,6 @@ def up(key):
             json.dump(upload_dict, f)
         with open(os.path.join(basepath, 'uploads', 'files', name), 'a+') as f:
             f.write(upload_text)
-        return name
+        return redirect(url_for('show', p_id=name))
     else:
         abort(401)
