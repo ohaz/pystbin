@@ -37,6 +37,6 @@ auth_key = config.auth_key
 basepath = os.path.dirname(os.path.realpath(__file__))
 app.secret_key = config.secret_key
 
-debug = True
-host = '0.0.0.0'
-port = 6112
+debug = config.debug
+host = config.host
+port = config.port
