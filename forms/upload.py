@@ -10,7 +10,7 @@ __author__ = 'ohaz'
 class TextUploadForm(Form):
     title = StringField('title')
     text = TextAreaField('text', validators=[DataRequired()])
-    language = SelectField('language', choices=[(a, a) for a in lexers.keys()])
+    language = SelectField('language', choices=sorted([(a, a) for a in lexers.keys()]))
     hllines = StringField('hllines')
 
     def to_dict(self):

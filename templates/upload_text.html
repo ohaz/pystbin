@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="row">
+            <div class="column column-80 column-offset-10">
+                <h2>Upload Text</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column column-80 column-offset-10">
+                <form action="{{ url_for('up', key=key) }}" method="POST">
+                    <fieldset>
+                        <label for="title">Title</label>
+                        {{ form.title }}
+                        <label for="text">Text</label>
+                        {{ form.text }}
+                        <label for="language">Language</label>
+                        {{ form.language }}
+                        <label for="hllines">Highlight Lines (comma seperated list)</label>
+                        {{ form.hllines }}
+                        <input class="button-primary" type="submit" value="Submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+{% endblock %}
