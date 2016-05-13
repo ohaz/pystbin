@@ -31,5 +31,7 @@ The request has to contain the following HTTP POST parameters:
 * "language" (string out of the dict in app.py)
 * "hllines" (comma seperated list of integers)
 
+Additionally, you can go to example.com/u/*key* in a browser and enter your paste there.
+
 Example:
 title="Test", text="print('Hello World!')", language="python", hllines="1"
