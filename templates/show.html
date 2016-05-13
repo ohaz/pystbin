@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/highlight.css') }}"
-</head>
-<body>
-    <h1>{{ title }}</h1>
-    {{ code|safe }}
-</body>
-</html>
+{% extends "base.html" %}
+{% block body %}
+        <div class="row">
+            <div class="column column-80 column-offset-10">
+                <h2>{{ title }}</h2> <span class="language-box">in <span class="language">{{ language }}</span></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column column-80 column-offset-10">
+                {{ code|safe }}
+            </div>
+        </div>
+{% endblock %}

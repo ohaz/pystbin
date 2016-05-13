@@ -24,7 +24,7 @@ def show(p_id):
         abort(404)
     if data['type'] == 'text':
         code = open(os.path.join(basepath, 'uploads', 'files', p_id)).read()
-        return render_template('show.html', title=data['title'],
+        return render_template('show.html', title=data['title'], language=data['language'],
                                code=highlight(code, lexers[data['language']](),
                                               HtmlFormatter(linenos='table', hl_lines=data['hllines'])))
 
