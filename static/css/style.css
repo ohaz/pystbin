@@ -2,8 +2,8 @@ td {
     padding: 0;
 }
 
-.code {
-    padding: 5px;
+.highlight pre {
+    padding-left: 10px;
 }
 
 .title {

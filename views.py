@@ -35,11 +35,17 @@ def up(key):
     if request.method == 'POST':
         if key == auth_key:
             name = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
-            while os.path.exists(os.path.join(basepath, 'uploads', name+'.json')):
-                name = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+            cur_range = 8
+            cur_run = 0
+            while os.path.exists(os.path.join(basepath, 'uploads', name + '.json')):
+                cur_run += 1
+                if cur_run > 50:
+                    cur_range += 1
+                name = ''.join(
+                    random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(cur_range))
             upload_dict = form.to_dict()
             upload_text = form.text.data.replace('\r', '')
-            with open(os.path.join(basepath, 'uploads', name+'.json'), 'a+') as f:
+            with open(os.path.join(basepath, 'uploads', name + '.json'), 'a+') as f:
                 json.dump(upload_dict, f)
             with open(os.path.join(basepath, 'uploads', 'files', name), 'a+') as f:
                 f.write(upload_text)
