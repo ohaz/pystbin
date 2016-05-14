@@ -49,7 +49,10 @@ def up(key):
                 json.dump(upload_dict, f)
             with open(os.path.join(basepath, 'uploads', 'files', name), 'a+') as f:
                 f.write(upload_text)
-            return redirect(url_for('show', p_id=name))
+            if not form.is_api_call():
+                return redirect(url_for('show', p_id=name))
+            else:
+                return url_for('show', p_id=name)
         else:
             abort(401)
     else:
