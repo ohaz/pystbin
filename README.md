@@ -1,7 +1,7 @@
 # Pystbin
 
 Pystbin is a pastebin application written in Python 3.
-It currently allows everybody who has access to a certain token to upload text, which then gets show with syntax highlighting.
+It currently allows everybody who has access to a certain token to upload text, which then is shown with syntax highlighting.
 
 ## Installation
 
